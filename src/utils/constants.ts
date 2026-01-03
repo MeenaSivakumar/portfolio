@@ -25,6 +25,7 @@ export const projects: Project[] = [
     description: 'Co-Founder project. Built end-to-end mobile application UI using React Native and reusable component patterns. Developed backend REST APIs including Feedback, Verify OTP, and authentication workflows. Integrated Gemini AI API to generate dynamic content. Designed multi-step forms and documented APIs using Swagger.',
     technologies: ['React Native', 'TypeScript', 'Spring Boot', 'MongoDB', 'Figma'],
     category: 'mobile',
+    githubUrl: 'https://github.com/MeenaSivakumar/stupro.git',
   },
   {
     id: '2',
@@ -32,6 +33,7 @@ export const projects: Project[] = [
     description: 'Built an Android weather app providing real-time temperature, humidity, and forecast updates. Used GPS to fetch location-based weather results. Implemented network calls using Volley, parsed JSON responses, and displayed data using RecyclerView. Used Picasso for fast and optimized image loading.',
     technologies: ['Java', 'WeatherAPI', 'GPS', 'JSON', 'RecyclerView', 'Volley'],
     category: 'mobile',
+    githubUrl: 'https://github.com/MeenaSivakumar/WeatherApp.git',
   },
   {
     id: '3',
@@ -39,6 +41,7 @@ export const projects: Project[] = [
     description: 'Replicated core Instagram functionalities including feed, comments, profile, and posts. Implemented Firebase Authentication for secure login/signup. Built real-time updates for posts and comments using Cloud Firestore. Used Firebase Storage for image uploads.',
     technologies: ['Flutter', 'Firebase Auth', 'Firestore', 'Cloud Storage'],
     category: 'mobile',
+    githubUrl: 'https://github.com/MeenaSivakumar/instaclone.git',
   },
   {
     id: '4',
@@ -46,6 +49,7 @@ export const projects: Project[] = [
     description: 'Developed an application to explore tourist destinations with images and descriptions. Users can upload visited places, store insights locally, and manage content offline with Sqflite. Designed UI for listing, viewing, and sharing travel experiences.',
     technologies: ['Flutter', 'Sqflite'],
     category: 'mobile',
+    githubUrl: 'https://github.com/MeenaSivakumar/Tour-Guide.git',
   },
 ];
 

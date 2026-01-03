@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { FiMessageCircle, FiZap } from 'react-icons/fi';
 import { socialLinks } from '@/utils/constants';
+import ContactFormModal from './ContactFormModal';
 
 const RightSidebar = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   // Generate animated shapes
   const shapes = Array.from({ length: 6 }, (_, i) => ({
     id: i,
@@ -100,15 +103,15 @@ const RightSidebar = () => {
         {/* Quick Actions - LinkedIn Style */}
         <div className="glass-effect rounded-xl p-6">
           <h3 className="text-lg font-bold text-gray-200 mb-4">Quick Actions</h3>
-          <motion.a
-            href={socialLinks.email}
+          <motion.button
+            onClick={() => setIsContactModalOpen(true)}
             className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <FiMessageCircle size={18} />
             <span>Send Message</span>
-          </motion.a>
+          </motion.button>
         </div>
 
         {/* Animated Pulse Circle */}
@@ -125,6 +128,12 @@ const RightSidebar = () => {
           }}
         />
       </motion.div>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </aside>
   );
 };
