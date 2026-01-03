@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ReactNode, RefObject } from 'react';
-import { FormErrors } from '@/utils/formValidation';
 
 interface FormFieldProps {
   id: string;
