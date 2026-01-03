@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { FiMail, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { FiMail, FiSend, FiGithub, FiLinkedin, FiCode } from 'react-icons/fi';
 import { socialLinks } from '@/utils/constants';
 
 const Contact = () => {
@@ -55,6 +55,7 @@ const Contact = () => {
   const socialIcons = [
     { icon: FiGithub, href: socialLinks.github, label: 'GitHub' },
     { icon: FiLinkedin, href: socialLinks.linkedin, label: 'LinkedIn' },
+    { icon: FiCode, href: socialLinks.leetcode, label: 'LeetCode' },
     { icon: FiMail, href: socialLinks.email, label: 'Email' },
   ];
 

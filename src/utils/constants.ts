@@ -57,6 +57,7 @@ export const socialLinks = {
   github: 'https://github.com/MeenaSivakumar',
   linkedin: 'https://linkedin.com/in/meena-sivakumar',
   email: 'mailto:meena@example.com',
+  leetcode: 'https://leetcode.com/u/Meenasivakumar/',
 };
 
 export const workExperience: WorkExperience[] = [
@@ -72,6 +73,9 @@ export const workExperience: WorkExperience[] = [
       'Integrated APIs and improved data flow using Redux + TypeScript',
       'Implemented local storage with AsyncStorage for persistent user/session data',
       'Connected React Native with native modules to update Android/iOS widgets',
+      'Implemented push notifications for real-time user engagement and updates',
+      'Developed and integrated widget implementations for enhanced user experience',
+      'Built voice-based navigation using AI for hands-free app interaction',
       'Worked closely with backend & design teams to deliver polished, production-ready UI'
     ],
     technologies: ['React Native', 'React', 'TypeScript', 'Tailwind', 'Redux'],
@@ -80,7 +84,7 @@ export const workExperience: WorkExperience[] = [
     id: '2',
     company: 'Stupro',
     position: 'Co-Founder',
-    duration: '2024 – Present',
+    duration: '2024 – 2025',
     location: 'Remote',
     description: [
       'Built both the frontend and backend of the application',

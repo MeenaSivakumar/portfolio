@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiBriefcase, FiStar } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiBriefcase, FiStar, FiCode } from 'react-icons/fi';
 import { socialLinks, projects } from '@/utils/constants';
 
 const ProfileSidebar = () => {
@@ -14,7 +14,7 @@ const ProfileSidebar = () => {
   }));
 
   return (
-    <aside className="w-64 flex-shrink-0 relative">
+    <aside className="w-full lg:w-64 flex-shrink-0 relative">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {particles.map((particle) => (
@@ -119,6 +119,16 @@ const ProfileSidebar = () => {
           >
             <FiMail size={20} />
             <span className="text-sm">Email</span>
+          </motion.a>
+          <motion.a
+            href={socialLinks.leetcode}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors text-gray-300 hover:text-purple-400"
+            whileHover={{ x: 4 }}
+          >
+            <FiCode size={20} />
+            <span className="text-sm">LeetCode</span>
           </motion.a>
         </div>
       </motion.div>

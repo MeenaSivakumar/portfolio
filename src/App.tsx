@@ -39,8 +39,13 @@ function App() {
         {/* Main Layout - GitHub + LinkedIn Style */}
         <section id="overview" className="pt-24 pb-12 md:pt-32 md:pb-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Profile Sidebar - Mobile: Above content, Desktop: Left sidebar */}
+            <div className="mb-6 lg:hidden">
+              <ProfileSidebar />
+            </div>
+
             <div className="flex gap-6">
-              {/* Left Sidebar - Profile (GitHub + LinkedIn) */}
+              {/* Left Sidebar - Profile (GitHub + LinkedIn) - Desktop only */}
               <div className="hidden lg:block">
                 <ProfileSidebar />
               </div>

@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FiMessageCircle, FiZap } from 'react-icons/fi';
-import { socialLinks } from '@/utils/constants';
 import ContactFormModal from './ContactFormModal';
 
 const RightSidebar = () => {
