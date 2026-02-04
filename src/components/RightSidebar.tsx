@@ -1,19 +1,16 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { FiMessageCircle, FiZap } from 'react-icons/fi';
+import { FiMessageCircle, FiZap, FiDownload } from 'react-icons/fi';
 import ContactFormModal from './ContactFormModal';
 
 const RightSidebar = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
-  // Generate animated shapes
-  const shapes = Array.from({ length: 6 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 30 + 20,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 15 + 10,
-    delay: Math.random() * 5,
-  }));
+  // Generate animated shapes with fixed values
+  const shapes = [
+    { id: 0, size: 35, x: 20, y: 15, duration: 18, delay: 1 },
+    { id: 1, size: 25, x: 70, y: 40, duration: 22, delay: 2 },
+    { id: 2, size: 40, x: 50, y: 75, duration: 15, delay: 0 },
+  ];
 
   return (
     <aside className="w-64 flex-shrink-0 relative">
@@ -102,15 +99,27 @@ const RightSidebar = () => {
         {/* Quick Actions - LinkedIn Style */}
         <div className="glass-effect rounded-xl p-6">
           <h3 className="text-lg font-bold text-gray-200 mb-4">Quick Actions</h3>
-          <motion.button
-            onClick={() => setIsContactModalOpen(true)}
-            className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <FiMessageCircle size={18} />
-            <span>Send Message</span>
-          </motion.button>
+          <div className="space-y-3">
+            <motion.a
+              href="/resume.pdf"
+              download="Meena_Sivakumar_Resume.pdf"
+              className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white/10 hover:bg-white/20 text-gray-200 rounded-lg font-medium transition-all border border-white/10"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FiDownload size={18} />
+              <span>Download Resume</span>
+            </motion.a>
+            <motion.button
+              onClick={() => setIsContactModalOpen(true)}
+              className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <FiMessageCircle size={18} />
+              <span>Send Message</span>
+            </motion.button>
+          </div>
         </div>
 
         {/* Animated Pulse Circle */}

@@ -52,7 +52,7 @@ const Header = () => {
             onClick={() => setActiveSection('overview')}
           >
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300 backdrop-blur-sm border border-white/10">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center group-hover:shadow-lg group-hover:shadow-purple-500/50 transition-all duration-300">
                 <span className="text-white font-bold text-lg">MS</span>
               </div>
               <span className="hidden sm:block text-lg font-semibold text-gray-200 group-hover:text-purple-400 transition-colors">

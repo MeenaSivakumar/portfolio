@@ -1,27 +1,23 @@
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 
 const AnimatedBackground = () => {
-  // Generate animated lines
-  const lines = Array.from({ length: 15 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    length: Math.random() * 200 + 100,
-    angle: Math.random() * 360,
-    duration: Math.random() * 10 + 15,
-    delay: Math.random() * 5,
-  }));
+  // Fixed animated lines - reduced count for performance
+  const lines = useMemo(() => [
+    { id: 0, x: 10, y: 20, length: 180, angle: 45, duration: 20, delay: 0 },
+    { id: 1, x: 80, y: 15, length: 150, angle: 135, duration: 18, delay: 2 },
+    { id: 2, x: 30, y: 60, length: 200, angle: 90, duration: 22, delay: 1 },
+    { id: 3, x: 70, y: 70, length: 160, angle: 180, duration: 25, delay: 3 },
+    { id: 4, x: 50, y: 40, length: 140, angle: 270, duration: 19, delay: 1.5 },
+  ], []);
 
-  // Generate geometric shapes
-  const shapes = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 60 + 20,
-    rotation: Math.random() * 360,
-    duration: Math.random() * 20 + 20,
-    delay: Math.random() * 5,
-  }));
+  // Fixed geometric shapes - reduced count for performance
+  const shapes = useMemo(() => [
+    { id: 0, x: 15, y: 25, size: 50, rotation: 0, duration: 30, delay: 0 },
+    { id: 1, x: 75, y: 20, size: 40, rotation: 45, duration: 25, delay: 2 },
+    { id: 2, x: 40, y: 70, size: 60, rotation: 90, duration: 35, delay: 1 },
+    { id: 3, x: 85, y: 60, size: 35, rotation: 180, duration: 28, delay: 3 },
+  ], []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
@@ -91,24 +87,35 @@ const AnimatedBackground = () => {
         />
       ))}
 
-      {/* Animated dots pattern */}
-      {Array.from({ length: 30 }, (_, i) => (
+      {/* Animated dots pattern - fixed positions, reduced count */}
+      {useMemo(() => [
+        { left: 5, top: 10, duration: 3.5, delay: 0 },
+        { left: 25, top: 30, duration: 4, delay: 0.5 },
+        { left: 45, top: 15, duration: 3, delay: 1 },
+        { left: 65, top: 50, duration: 4.5, delay: 0.3 },
+        { left: 85, top: 25, duration: 3.2, delay: 0.8 },
+        { left: 15, top: 70, duration: 4.2, delay: 1.2 },
+        { left: 35, top: 85, duration: 3.8, delay: 0.2 },
+        { left: 55, top: 65, duration: 4.8, delay: 0.7 },
+        { left: 75, top: 80, duration: 3.3, delay: 1.5 },
+        { left: 95, top: 55, duration: 4.3, delay: 0.4 },
+      ], []).map((dot, i) => (
         <motion.div
           key={`dot-${i}`}
           className="absolute w-1 h-1 bg-white/10 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${dot.left}%`,
+            top: `${dot.top}%`,
           }}
           animate={{
             opacity: [0.1, 0.3, 0.1],
             scale: [1, 2, 1],
           }}
           transition={{
-            duration: Math.random() * 3 + 2,
+            duration: dot.duration,
             repeat: Infinity,
             ease: 'easeInOut',
-            delay: Math.random() * 2,
+            delay: dot.delay,
           }}
         />
       ))}

@@ -1,17 +1,19 @@
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiBriefcase, FiStar, FiCode } from 'react-icons/fi';
+import { useState } from 'react';
+import { FiGithub, FiLinkedin, FiMail, FiMapPin, FiBriefcase, FiStar, FiCode, FiDownload, FiMessageCircle } from 'react-icons/fi';
 import { socialLinks, projects } from '@/utils/constants';
+import ContactFormModal from './ContactFormModal';
 
 const ProfileSidebar = () => {
-  // Generate floating particles
-  const particles = Array.from({ length: 8 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 4 + 2,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 10 + 8,
-    delay: Math.random() * 5,
-  }));
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  // Generate floating particles with fixed values to prevent re-renders
+  const particles = [
+    { id: 0, size: 4, x: 15, y: 20, duration: 12, delay: 1 },
+    { id: 1, size: 3, x: 75, y: 35, duration: 14, delay: 2 },
+    { id: 2, size: 5, x: 45, y: 60, duration: 10, delay: 0 },
+    { id: 3, size: 2, x: 85, y: 80, duration: 16, delay: 3 },
+  ];
 
   return (
     <aside className="w-full lg:w-64 flex-shrink-0 relative">
@@ -131,17 +133,44 @@ const ProfileSidebar = () => {
             <span className="text-sm">LeetCode</span>
           </motion.a>
         </div>
+
+        {/* Action Buttons - Visible on mobile/tablet */}
+        <div className="space-y-3 pt-4 border-t border-white/10 xl:hidden">
+          <motion.a
+            href="/resume.pdf"
+            download="Meena_Sivakumar_Resume.pdf"
+            className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white/10 hover:bg-white/20 text-gray-200 rounded-lg font-medium transition-all border border-white/10"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <FiDownload size={18} />
+            <span>Download Resume</span>
+          </motion.a>
+          <motion.button
+            onClick={() => setIsContactModalOpen(true)}
+            className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <FiMessageCircle size={18} />
+            <span>Send Message</span>
+          </motion.button>
+        </div>
       </motion.div>
 
-      {/* Floating Stars */}
+      {/* Floating Stars - Fixed positions */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {Array.from({ length: 5 }, (_, i) => (
+        {[
+          { left: 10, top: 15, delay: 0, duration: 4 },
+          { left: 80, top: 40, delay: 1, duration: 3.5 },
+          { left: 30, top: 70, delay: 0.5, duration: 4.5 },
+        ].map((star, i) => (
           <motion.div
             key={`star-${i}`}
             className="absolute text-purple-400/20"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${star.left}%`,
+              top: `${star.top}%`,
             }}
             animate={{
               opacity: [0.2, 0.5, 0.2],
@@ -149,16 +178,22 @@ const ProfileSidebar = () => {
               rotate: [0, 180, 360],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: star.duration,
               repeat: Infinity,
               ease: 'easeInOut',
-              delay: Math.random() * 2,
+              delay: star.delay,
             }}
           >
             <FiStar size={16} />
           </motion.div>
         ))}
       </div>
+
+      {/* Contact Form Modal */}
+      <ContactFormModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </aside>
   );
 };
