@@ -1,0 +1,41 @@
+.fx-card-spotlight::after,
+.fx-card-tilt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+
+.fx-card-spotlight::after {
+  padding: 1.5px;
+  background: radial-gradient(260px circle at var(--fx-x) var(--fx-y), var(--fg), transparent 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+
+.fx-card-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.fx-card-tilt::after {
+  background: radial-gradient(400px circle at var(--fx-x) var(--fx-y), rgba(255, 255, 255, 0.18), transparent 50%);
+}
+
+.fx-card-spotlight:hover::after,
+.fx-card-tilt:hover::after {
+  opacity: 1;
+}
+
+.fx-card-lift {
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+}
+
+.fx-card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.45);
+}

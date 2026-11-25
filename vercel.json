@@ -1,14 +1,15 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "vite",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/:section(mobile|web|projects|achievements|articles|toolkit|about|contact)",
       "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/resume.pdf",
+      "destination": "/Meena_Sivakumar_Resume.pdf",
+      "permanent": true
     }
   ]
 }
-

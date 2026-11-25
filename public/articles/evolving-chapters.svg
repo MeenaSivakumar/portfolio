@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800" role="img" aria-label="An open notebook where a dotted path grows from a seed through four chapters into a tree">
+  <defs>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="13" cy="13" r="1.6" fill="#1a1a1a" opacity="0.13"/>
+    </pattern>
+    <linearGradient id="gutterL" x1="1" x2="0" y1="0" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.16"/>
+      <stop offset="0.18" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gutterR" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#000" stop-opacity="0.16"/>
+      <stop offset="0.18" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- desk -->
+  <rect width="1000" height="800" fill="#e9e6df"/>
+
+  <!-- book shadow + cover -->
+  <ellipse cx="500" cy="700" rx="440" ry="34" fill="#000" opacity="0.12"/>
+  <path d="M70 150 Q285 120 500 160 Q715 120 930 150 L930 690 Q715 660 500 700 Q285 660 70 690 Z" fill="#2a2a2a"/>
+
+  <!-- pages -->
+  <path d="M86 162 Q290 136 500 172 L500 688 Q290 652 86 676 Z" fill="#fbfaf6"/>
+  <path d="M914 162 Q710 136 500 172 L500 688 Q710 652 914 676 Z" fill="#fbfaf6"/>
+  <path d="M86 162 Q290 136 500 172 L500 688 Q290 652 86 676 Z" fill="url(#dots)"/>
+  <path d="M914 162 Q710 136 500 172 L500 688 Q710 652 914 676 Z" fill="url(#dots)"/>
+  <path d="M86 162 Q290 136 500 172 L500 688 Q290 652 86 676 Z" fill="url(#gutterL)"/>
+  <path d="M914 162 Q710 136 500 172 L500 688 Q710 652 914 676 Z" fill="url(#gutterR)"/>
+  <!-- page stack edges -->
+  <path d="M86 676 Q290 652 500 688 Q710 652 914 676" fill="none" stroke="#cfcbc2" stroke-width="2"/>
+  <path d="M80 682 Q290 659 500 694 Q710 659 920 682" fill="none" stroke="#d9d5cc" stroke-width="2"/>
+  <line x1="500" y1="172" x2="500" y2="688" stroke="#1a1a1a" stroke-opacity="0.18" stroke-width="2"/>
+
+  <!-- ribbon -->
+  <path d="M512 172 L536 172 L536 742 L524 728 L512 742 Z" fill="#8a8a8a"/>
+
+  <!-- the path through the chapters -->
+  <path d="M168 586 C230 520 210 450 300 420 S420 470 430 380 S560 260 640 330 S740 470 800 360"
+        fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
+
+  <!-- seed and sprout (start) -->
+  <g stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <ellipse cx="156" cy="606" rx="20" ry="12" fill="#fbfaf6"/>
+    <path d="M156 596 C156 576 158 566 162 556"/>
+    <path d="M161 566 C176 548 196 552 198 556 C186 568 172 570 161 566 Z" fill="#fbfaf6"/>
+    <path d="M158 574 C146 560 128 562 126 566 C138 576 150 578 158 574 Z" fill="#fbfaf6"/>
+  </g>
+
+  <!-- chapter markers: learning → curiosity → direction → a milestone -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- book: learning -->
+    <circle cx="300" cy="420" r="24" fill="#fbfaf6" stroke="#1a1a1a" stroke-width="3"/>
+    <path transform="translate(300 420)" fill="none" stroke="#1a1a1a" stroke-width="2.2"
+          d="M-11 -6 C-7 -8 -3 -8 0 -5 C3 -8 7 -8 11 -6 V8 C7 6 3 6 0 9 C-3 6 -7 6 -11 8 Z M0 -5 V9"/>
+    <!-- light bulb: curiosity -->
+    <circle cx="430" cy="380" r="24" fill="#fbfaf6" stroke="#1a1a1a" stroke-width="3"/>
+    <path transform="translate(430 379)" fill="none" stroke="#1a1a1a" stroke-width="2.2"
+          d="M-6 2 C-9 -1 -9 -5 -7 -8 C-4 -12 4 -12 7 -8 C9 -5 9 -1 6 2 C4 4 4 5 4 7 H-4 C-4 5 -4 4 -6 2 Z M-3 11 H3"/>
+    <!-- compass: direction -->
+    <circle cx="640" cy="330" r="24" fill="#fbfaf6" stroke="#1a1a1a" stroke-width="3"/>
+    <g transform="translate(640 330)">
+      <circle r="11" fill="none" stroke="#1a1a1a" stroke-width="2.2"/>
+      <path d="M4.5 -6 L1.4 1.4 L-4.5 6 L-1.4 -1.4 Z" fill="#1a1a1a"/>
+    </g>
+    <!-- star: a milestone reached -->
+    <circle cx="728" cy="420" r="24" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="3"/>
+    <path transform="translate(728 421)" fill="none" stroke="#fbfaf6" stroke-width="2.2"
+          d="M0 -11 L3.2 -3.6 L11 -3.4 L5 1.7 L7 9.8 L0 5.2 L-7 9.8 L-5 1.7 L-11 -3.4 L-3.2 -3.6 Z"/>
+  </g>
+
+  <!-- grown tree (where the path leads) -->
+  <g stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M806 352 C804 320 806 300 812 276" fill="none"/>
+    <path d="M810 300 C826 290 836 276 840 262" fill="none"/>
+    <path d="M808 312 C792 302 782 290 778 276" fill="none"/>
+    <circle cx="812" cy="236" r="44" fill="#fbfaf6"/>
+    <circle cx="772" cy="262" r="30" fill="#fbfaf6"/>
+    <circle cx="852" cy="262" r="30" fill="#fbfaf6"/>
+    <circle cx="812" cy="268" r="26" fill="#fbfaf6" stroke="none"/>
+    <path d="M790 354 Q812 344 834 354" fill="none"/>
+  </g>
+  <g fill="#1a1a1a" opacity="0.55">
+    <circle cx="796" cy="226" r="4"/>
+    <circle cx="828" cy="214" r="4"/>
+    <circle cx="840" cy="250" r="4"/>
+    <circle cx="780" cy="258" r="4"/>
+  </g>
+
+  <!-- small page notes -->
+  <g font-family="'Courier New', monospace" font-size="15" letter-spacing="3" fill="#1a1a1a" opacity="0.5">
+    <text x="130" y="226">CHAPTERS</text>
+    <text x="880" y="630" text-anchor="end">— still being written</text>
+  </g>
+  <path d="M130 240 H262" stroke="#1a1a1a" stroke-opacity="0.35" stroke-width="2"/>
+</svg>

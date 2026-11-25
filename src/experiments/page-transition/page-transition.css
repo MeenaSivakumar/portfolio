@@ -1,0 +1,35 @@
+.fx-pt {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.fx-pt--wipe {
+  background: var(--fg);
+}
+
+.fx-pt--fade {
+  background: var(--bg);
+  backdrop-filter: blur(20px);
+}
+
+.fx-pt--card {
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.fx-pt--card .eyebrow {
+  color: inherit;
+  opacity: 0.6;
+}
+
+.fx-pt--card strong {
+  font-size: clamp(56px, 10vw, 160px);
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+}

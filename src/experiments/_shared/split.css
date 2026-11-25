@@ -1,0 +1,7 @@
+.fx-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.fx-unit {
+  display: inline-block;
+}

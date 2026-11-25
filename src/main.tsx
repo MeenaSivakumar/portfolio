@@ -1,11 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import './index.css';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles/tokens.css';
+import './styles/base.css';
+import { App } from './core/App';
+import { SlotProvider } from './core/Slot';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+// ── Experiments ──────────────────────────────────────────────────────────────
+// The only place experiments touch the portfolio. Delete these two lines (and
+// the `value` prop below) to remove the whole experiment system.
+import { createSlotRenderer } from './experiments/host';
+const renderSlot = createSlotRenderer();
+// ─────────────────────────────────────────────────────────────────────────────
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <SlotProvider value={renderSlot}>
+      <App />
+    </SlotProvider>
+  </StrictMode>,
 );
-

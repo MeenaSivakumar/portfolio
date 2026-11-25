@@ -1,0 +1,66 @@
+html.fx-cursor-none,
+html.fx-cursor-none * {
+  cursor: none !important;
+}
+html.fx-cursor-none input,
+html.fx-cursor-none textarea {
+  cursor: text !important;
+}
+
+.fx-dot,
+.fx-ring,
+.fx-blend {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 50%;
+  transition: opacity 0.2s, width 0.3s, height 0.3s;
+}
+
+.fx-dot {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background: var(--fg);
+  transition: transform 0.15s var(--ease-out), opacity 0.2s;
+}
+
+.fx-ring {
+  width: 36px;
+  height: 36px;
+  margin: -18px 0 0 -18px;
+  border: 1.5px solid var(--fg);
+  transition: opacity 0.2s, background 0.3s;
+}
+
+.fx-ring[data-hover='true'] {
+  background: color-mix(in srgb, var(--fg) 10%, transparent);
+}
+
+.fx-blend {
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  background: #fff;
+  mix-blend-mode: difference;
+}
+
+.fx-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--x, -999px) var(--y, -999px), color-mix(in srgb, var(--fg) 7%, transparent), transparent 70%);
+  transition: opacity 0.3s;
+}
+
+.fx-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
